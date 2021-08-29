@@ -25,7 +25,7 @@ namespace ConsolePractice
             {
                 Console.Clear();
                 Show();
-                Selecter();
+                Selector();
                 if (Fields != -1) continue;
                 IsOnPlay = false;
                 Show();
@@ -59,7 +59,7 @@ namespace ConsolePractice
             IsOnPlay = true;
         }
 
-        public static void Selecter()
+        public static void Selector()
         {
 
             Console.Write("Row: ");
@@ -85,14 +85,14 @@ namespace ConsolePractice
                 Grid[row, col].IsOpen = true;
                 if (Grid[row, col].Neighbors == 0)
                 {
-                    SpaseChecker(row, col);
+                    SpaceChecker(row, col);
                 }
 
                 Fields--;
             }
         }
 
-        public static void SpaseChecker(int row, int col)
+        public static void SpaceChecker(int row, int col)
         {
             for (var yoff = row - 1; yoff <= row + 1; yoff++)
                 for (var xoff = col - 1; xoff <= col + 1; xoff++)
@@ -102,7 +102,7 @@ namespace ConsolePractice
                     {
                         Grid[yoff, xoff].IsOpen = true;
                         Fields--;
-                        SpaseChecker(yoff,xoff);
+                        SpaceChecker(yoff,xoff);
                     }
 
                     if (Grid[yoff, xoff].IsBomb) continue;
